@@ -14,14 +14,8 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
-    - name: Make Install
-      run: make install
-
-    - name: Make Format
-      run: make format
-
-    - name: Make Lint
-      run: make lint
+    - name: Cargo Build
+      run: cargo build
 
     - name: Revision
       run: echo "${{ github.sha }}" > REVISION
@@ -30,5 +24,5 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Make Test
-      run: make test
+    - name: Cargo Test
+      run: cargo test
